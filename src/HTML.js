@@ -265,13 +265,7 @@ export default class HTML extends PureComponent {
                 const alteredChildren = alterChildren(node);
                 children = alteredChildren || children;
             }
-            // Remove whitespaces to check if it's just a blank text
-            const strippedData = data && data.replace(/\s/g, '');
             if (type === 'text') {
-                if (!strippedData || !strippedData.length) {
-                    // This is blank, don't render an useless additional component
-                    return false;
-                }
                 // Text without tags, these can be mapped to the Text wrapper
                 return {
                     wrapper: 'Text',
